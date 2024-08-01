@@ -3,12 +3,22 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:WPF_CRUD.Views.Pages"
+      xmlns:vm="clr-namespace:WPF_CRUD.ViewModels.Pages"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:cmd="http://www.galasoft.ch/mvvmlight"
+      d:DataContext="{d:DesignInstance Type=vm:ProductViewModel}"
+      DataContext="{Binding Source={StaticResource DiContainer}, Path=ProductViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProductView">
 
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command="{Binding InitializeCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
     <Grid>
-        <TextBlock Text="Products" Style="{DynamicResource MenuText}"/>
+        <DataGrid ItemsSource="{Binding Items}"/>
     </Grid>
 </Page>

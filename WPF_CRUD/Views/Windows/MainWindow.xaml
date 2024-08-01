@@ -88,8 +88,8 @@
 
                                             <ThicknessAnimation Storyboard.TargetProperty="Margin"
                                                                 Storyboard.TargetName="Frame"
-                                                                From="0"
-                                                                To="250,0,0,0"
+                                                                From="50,30,0,0"
+                                                                To="250,30,0,0"
                                                                 Duration="0:0:0.5">
                                                 <ThicknessAnimation.EasingFunction>
                                                     <PowerEase Power="2" EasingMode="EaseOut"/>
@@ -113,8 +113,8 @@
 
                                             <ThicknessAnimation Storyboard.TargetProperty="Margin"
                                                                 Storyboard.TargetName="Frame"
-                                                                From="250,0,0,0"
-                                                                To="0"
+                                                                From="250,30,0,0"
+                                                                To="50,30,0,0"
                                                                 Duration="0:0:0.5">
                                                 <ThicknessAnimation.EasingFunction>
                                                     <PowerEase Power="2" EasingMode="EaseOut"/>
@@ -159,7 +159,7 @@
                 </StackPanel>
             </Border>
 
-            <Frame x:Name="Frame" Panel.ZIndex="-1"
+            <Frame x:Name="Frame" Margin="50,30,0,0"
                    Content="{Binding Navigation.Frame.Content}"
                    NavigationUIVisibility="Hidden"
                    Opacity="{Binding Navigation.Frame.Opacity}"/>
