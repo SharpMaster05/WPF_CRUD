@@ -3,9 +3,16 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Styles\Dark\" />
+    <Folder Include="Styles\Light\" />
+    <Folder Include="ViewModels\Windows\" />
+    <Folder Include="ViewModels\Pages\" />
+    <Folder Include="Views\Pages\" />
+  </ItemGroup>
 
 </Project>
