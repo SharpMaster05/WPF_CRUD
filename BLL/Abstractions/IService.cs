@@ -1,6 +1,6 @@
 ﻿namespace BLL.Abstractions;
 
-internal interface IService<T> where T : class, new()
+public interface IService<T> where T : class, new()
 {
     Task Add(T entity);
     Task Update(T entity);

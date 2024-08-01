@@ -12,7 +12,7 @@ internal static class AppConfig
             .AddJsonFile("appsettings.json", true, true)
             .Build();
 
-        string connectionString = configuration.GetConnectionString("DeafaultConnection");
+        string connectionString = configuration.GetConnectionString("DefaultConnection");
 
         return connectionString;
     }

@@ -5,6 +5,7 @@ using DAL.Models;
 using DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using WPF_CRUD.ViewModels.Windows;
 
 namespace WPF_CRUD.Infrastucture;
 
@@ -25,6 +26,10 @@ internal class DiContainer
         builder.AddScoped<CategoryService>();
         builder.AddScoped<ProductService>();
 
+        builder.AddTransient<MainViewModel>();
+
         _provider = builder.BuildServiceProvider();
     }
+
+    public static MainViewModel MainViewModel => _provider.GetRequiredService<MainViewModel>();
 }

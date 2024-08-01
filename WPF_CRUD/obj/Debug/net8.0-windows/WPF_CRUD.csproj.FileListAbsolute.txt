@@ -96,3 +96,9 @@ D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\refint\WPF_CRU
 D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\WPF_CRUD.pdb
 D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\WPF_CRUD.genruntimeconfig.cache
 D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\ref\WPF_CRUD.dll
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\bin\Debug\net8.0-windows\AutoMapper.dll
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\bin\Debug\net8.0-windows\BLL.dll
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\bin\Debug\net8.0-windows\DAL.dll
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\bin\Debug\net8.0-windows\BLL.pdb
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\bin\Debug\net8.0-windows\DAL.pdb
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\bin\Debug\net8.0-windows\appsettings.json

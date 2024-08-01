@@ -1,3 +1,4 @@
+C:\Users\mrkol\.nuget\packages\automapper\13.0.1\lib\net6.0\AutoMapper.dll
 C:\Users\mrkol\.nuget\packages\azure.core\1.35.0\lib\net6.0\Azure.Core.dll
 C:\Users\mrkol\.nuget\packages\azure.identity\1.10.3\lib\netstandard2.0\Azure.Identity.dll
 C:\Users\mrkol\.nuget\packages\commonservicelocator\2.0.2\lib\netcoreapp1.0\CommonServiceLocator.dll
@@ -69,3 +70,7 @@ C:\Users\mrkol\.nuget\packages\microsoft.web.webview2\1.0.864.35\runtimes\win-ar
 C:\Users\mrkol\.nuget\packages\microsoft.web.webview2\1.0.864.35\runtimes\win-x64\native\WebView2Loader.dll
 C:\Users\mrkol\.nuget\packages\microsoft.web.webview2\1.0.864.35\runtimes\win-x86\native\WebView2Loader.dll
 C:\Users\mrkol\.nuget\packages\system.runtime.caching\6.0.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\bin\Debug\net8.0\BLL.dll
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\DAL\bin\Debug\net8.0\DAL.dll
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\bin\Debug\net8.0\BLL.pdb
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\DAL\bin\Debug\net8.0\DAL.pdb

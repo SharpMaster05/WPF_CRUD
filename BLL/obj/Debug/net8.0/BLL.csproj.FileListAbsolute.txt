@@ -10,3 +10,7 @@ D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\obj\Debug\net8.0\BLL.dll
 D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\obj\Debug\net8.0\refint\BLL.dll
 D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\obj\Debug\net8.0\BLL.pdb
 D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\obj\Debug\net8.0\ref\BLL.dll
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\bin\Debug\net8.0\DAL.dll
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\bin\Debug\net8.0\DAL.pdb
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\obj\Debug\net8.0\BLL.csproj.AssemblyReference.cache
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\obj\Debug\net8.0\BLL.csproj.Up2Date
