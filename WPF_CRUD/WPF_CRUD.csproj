@@ -8,8 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Styles\Dark\" />
-    <Folder Include="Styles\Light\" />
     <Folder Include="ViewModels\Pages\" />
     <Folder Include="Views\Pages\" />
   </ItemGroup>

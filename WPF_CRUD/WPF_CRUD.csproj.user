@@ -7,6 +7,33 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Styles\AppColors.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\AppFonts.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Dark\Borders.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Dark\Buttons.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Dark\ScrollViewer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Dark\TextBlocks.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Light\Buttons.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Light\ScrollViewer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Light\TextBlocks.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Windows\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

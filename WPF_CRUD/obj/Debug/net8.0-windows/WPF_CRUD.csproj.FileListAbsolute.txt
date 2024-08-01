@@ -102,3 +102,12 @@ D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\bin\Debug\net8.0-windows\DAL.dll
 D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\bin\Debug\net8.0-windows\BLL.pdb
 D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\bin\Debug\net8.0-windows\DAL.pdb
 D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\bin\Debug\net8.0-windows\appsettings.json
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\Styles\AppColors.baml
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\Styles\AppFonts.baml
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\Styles\Dark\Buttons.baml
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\Styles\Dark\ScrollViewer.baml
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\Styles\Dark\TextBlocks.baml
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\Styles\Light\Buttons.baml
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\Styles\Light\ScrollViewer.baml
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\Styles\Light\TextBlocks.baml
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\Styles\Dark\Borders.baml

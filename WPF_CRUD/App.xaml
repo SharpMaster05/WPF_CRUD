@@ -6,7 +6,12 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary/>
+                <ResourceDictionary Source="Styles/AppColors.xaml"/>
+                <ResourceDictionary Source="Styles/AppFonts.xaml"/>
+                <ResourceDictionary Source="Styles/Dark/Buttons.xaml"/>
+                <ResourceDictionary Source="Styles/Dark/Borders.xaml"/>
+                <ResourceDictionary Source="Styles/Dark/TextBlocks.xaml"/>
+                <ResourceDictionary Source="Styles/Dark/ScrollViewer.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <local:DiContainer x:Key="DiContainer"/>

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\App.xaml
-1-834700163
+10-201679373
 
 13303118717
 256305868168
-Views\Windows\MainWindow.xaml;
+Styles\AppColors.xaml;Styles\AppFonts.xaml;Styles\Dark\Borders.xaml;Styles\Dark\Buttons.xaml;Styles\Dark\ScrollViewer.xaml;Styles\Dark\TextBlocks.xaml;Styles\Light\Buttons.xaml;Styles\Light\ScrollViewer.xaml;Styles\Light\TextBlocks.xaml;Views\Windows\MainWindow.xaml;
 
 True
 

@@ -11,7 +11,15 @@
         d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
         DataContext="{Binding Source={StaticResource DiContainer}, Path=MainViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="{x:Null}"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResizeWithGrip"
+        Title="MainWindow"
+        Height="450" 
+        Width="800"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -20,7 +28,125 @@
     </i:Interaction.Triggers>
     
     
-    <Grid>
-        <DataGrid ItemsSource="{Binding Items}"/>
-    </Grid>
+    <Border CornerRadius="10" Background="{DynamicResource PrimaryBackground}">
+        <Grid>
+            <StackPanel Orientation="Horizontal"
+                        FlowDirection="RightToLeft"
+                        VerticalAlignment="Top"
+                        Background="{DynamicResource PrimaryBackground}"
+                        >
+                
+                <Button Command="{Binding}"
+                        Style="{DynamicResource CircleButton}"
+                        Content="{md:PackIcon Kind=CloseBold}"/>
+                
+                <Button Command="{Binding}"
+                        Style="{DynamicResource CircleButton}"
+                        Content="{md:PackIcon Kind=Maximize}"/>
+                
+                <Button Command="{Binding}"
+                        Style="{DynamicResource CircleButton}"
+                        Content="{md:PackIcon Kind=Minimize}"/>
+                
+            </StackPanel>
+
+            <Border Style="{DynamicResource MenuBorder}" Name="Menu" Panel.ZIndex="1">
+                <StackPanel>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Menu" Style="{DynamicResource MenuText}"/>
+
+                        <ToggleButton Grid.Column="1"
+                                      Style="{DynamicResource MenuToggleButton}"
+                                      Content="{md:PackIcon Kind=MenuClose}">
+                            <ToggleButton.Triggers>
+                                <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="Menu"
+                                                             Storyboard.TargetProperty="Width"
+                                                             From="50" To="250"
+                                                             Duration="0:0:0.5">
+                                                <DoubleAnimation.EasingFunction>
+                                                    <PowerEase Power="2" EasingMode="EaseOut"/>
+                                                </DoubleAnimation.EasingFunction>
+                                            </DoubleAnimation>
+
+                                            <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                Storyboard.TargetName="Frame"
+                                                                From="50,40,0,0"
+                                                                To="250,40,0,0"
+                                                                Duration="0:0:0.5">
+                                                <ThicknessAnimation.EasingFunction>
+                                                    <PowerEase Power="2" EasingMode="EaseOut"/>
+                                                </ThicknessAnimation.EasingFunction>
+                                            </ThicknessAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+
+                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="Menu"
+                                                             Storyboard.TargetProperty="Width"
+                                                             From="250" To="50"
+                                                             Duration="0:0:0.5">
+                                                <DoubleAnimation.EasingFunction>
+                                                    <PowerEase Power="2" EasingMode="EaseOut"/>
+                                                </DoubleAnimation.EasingFunction>
+                                            </DoubleAnimation>
+
+                                            <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                                Storyboard.TargetName="Frame"
+                                                                From="250,40,0,0"
+                                                                To="50,40,0,0"
+                                                                Duration="0:0:0.5">
+                                                <ThicknessAnimation.EasingFunction>
+                                                    <PowerEase Power="2" EasingMode="EaseOut"/>
+                                                </ThicknessAnimation.EasingFunction>
+                                            </ThicknessAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </ToggleButton.Triggers>
+                        </ToggleButton>
+                    </Grid>
+
+                    <RadioButton Style="{DynamicResource MenuButton}" Margin="0,50,0,0">
+                        <Grid Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <md:PackIcon Kind="Store" Style="{DynamicResource MenuButtonsIcon}"/>
+
+                            <TextBlock Text="Products" Style="{DynamicResource MenuButtonTextBlock}" Grid.Column="1"/>
+                        </Grid>
+                    </RadioButton>
+                    
+                    <RadioButton Style="{DynamicResource MenuButton}">
+                        <Grid Height="40">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <md:PackIcon Kind="Category" Style="{DynamicResource MenuButtonsIcon}"/>
+
+                            <TextBlock Text="Categories" Style="{DynamicResource MenuButtonTextBlock}" Grid.Column="1"/>
+                        </Grid>
+                    </RadioButton>
+                </StackPanel>
+            </Border>
+
+            <Frame x:Name="Frame" Margin="50 30 0 0"/>
+        </Grid>
+    </Border>
 </Window>
