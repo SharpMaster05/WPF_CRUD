@@ -1,24 +1,35 @@
-﻿namespace DAL.Abstractions;
+﻿using DAL.Context;
+using Microsoft.EntityFrameworkCore;
+
+namespace DAL.Abstractions;
 
 public class GenericRepository<T> : IRepository<T> where T : class, new()
 {
-    public Task Add(T entity)
+    private readonly AppDbContext _context;
+
+    public GenericRepository(AppDbContext context) 
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public Task Delete(T entity)
+    public async Task Add(T entity)
     {
-        throw new NotImplementedException();
+        await _context.Set<T>().AddAsync(entity);
+        await _context.SaveChangesAsync();
     }
 
-    public Task<IEnumerable<T>> GetAll()
+    public async Task Delete(T entity)
     {
-        throw new NotImplementedException();
+        _context.Set<T>().Remove(entity);
+        await _context.SaveChangesAsync();
+    }
+    
+    public async Task Update(T entity)
+    {
+        _context.Set<T>().Entry(entity).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
     }
 
-    public Task Update(T entity)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<IEnumerable<T>> GetAll() => await _context.Set<T>().ToListAsync();
+    public async Task<T> GetById(int id) => await _context.Set<T>().FindAsync(id);
 }

@@ -1,5 +1,5 @@
-﻿
-using System.Windows;
+﻿using System.Windows;
+using WPF_CRUD.Infrastucture;
 
 namespace WPF_CRUD;
 
@@ -8,4 +8,9 @@ namespace WPF_CRUD;
 /// </summary>
 public partial class App : Application
 {
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        DiContainer.Init();
+        base.OnStartup(e);
+    }
 }

@@ -1,9 +1,15 @@
 ﻿<Application x:Class="WPF_CRUD.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WPF_CRUD"
+             xmlns:local="clr-namespace:WPF_CRUD.Infrastucture"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <local:DiContainer x:Key="DiContainer"/>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

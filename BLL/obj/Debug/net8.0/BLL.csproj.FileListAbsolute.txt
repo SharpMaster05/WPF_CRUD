@@ -1,0 +1,12 @@
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\bin\Debug\net8.0\BLL.deps.json
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\bin\Debug\net8.0\BLL.dll
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\bin\Debug\net8.0\BLL.pdb
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\obj\Debug\net8.0\BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\obj\Debug\net8.0\BLL.AssemblyInfoInputs.cache
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\obj\Debug\net8.0\BLL.AssemblyInfo.cs
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\obj\Debug\net8.0\BLL.csproj.CoreCompileInputs.cache
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\obj\Debug\net8.0\BLL.sourcelink.json
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\obj\Debug\net8.0\BLL.dll
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\obj\Debug\net8.0\refint\BLL.dll
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\obj\Debug\net8.0\BLL.pdb
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\BLL\obj\Debug\net8.0\ref\BLL.dll
