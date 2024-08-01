@@ -28,6 +28,9 @@ internal class DiContainer
 
         builder.AddTransient<MainViewModel>();
 
+        builder.AddSingleton<Animation>();
+        builder.AddSingleton<Navigation>();
+
         _provider = builder.BuildServiceProvider();
     }
 

@@ -29,24 +29,33 @@
     
     
     <Border CornerRadius="10" Background="{DynamicResource PrimaryBackground}">
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="Loaded">
+                <cmd:EventToCommand Command="{Binding OpenCommand}"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Border}}"/>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+
         <Grid>
             <StackPanel Orientation="Horizontal"
                         FlowDirection="RightToLeft"
                         VerticalAlignment="Top"
-                        Background="{DynamicResource PrimaryBackground}"
-                        >
+                        Background="{DynamicResource PrimaryBackground}">
                 
-                <Button Command="{Binding}"
-                        Style="{DynamicResource CircleButton}"
-                        Content="{md:PackIcon Kind=CloseBold}"/>
+                <Button Style="{DynamicResource CircleButton}"
+                        Content="{md:PackIcon Kind=CloseBold}"
+                        Command="{Binding CloseCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Border}}"/>
                 
-                <Button Command="{Binding}"
-                        Style="{DynamicResource CircleButton}"
-                        Content="{md:PackIcon Kind=Maximize}"/>
+                <Button Style="{DynamicResource CircleButton}"
+                        Content="{md:PackIcon Kind=Maximize}"
+                        Command="{Binding MaximizeCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Border}}"/>
                 
-                <Button Command="{Binding}"
-                        Style="{DynamicResource CircleButton}"
-                        Content="{md:PackIcon Kind=Minimize}"/>
+                <Button Style="{DynamicResource CircleButton}"
+                        Content="{md:PackIcon Kind=Minimize}"
+                        Command="{Binding MinimizeCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Border}}"/>
                 
             </StackPanel>
 
@@ -79,8 +88,8 @@
 
                                             <ThicknessAnimation Storyboard.TargetProperty="Margin"
                                                                 Storyboard.TargetName="Frame"
-                                                                From="50,40,0,0"
-                                                                To="250,40,0,0"
+                                                                From="0"
+                                                                To="250,0,0,0"
                                                                 Duration="0:0:0.5">
                                                 <ThicknessAnimation.EasingFunction>
                                                     <PowerEase Power="2" EasingMode="EaseOut"/>
@@ -104,8 +113,8 @@
 
                                             <ThicknessAnimation Storyboard.TargetProperty="Margin"
                                                                 Storyboard.TargetName="Frame"
-                                                                From="250,40,0,0"
-                                                                To="50,40,0,0"
+                                                                From="250,0,0,0"
+                                                                To="0"
                                                                 Duration="0:0:0.5">
                                                 <ThicknessAnimation.EasingFunction>
                                                     <PowerEase Power="2" EasingMode="EaseOut"/>
@@ -118,7 +127,8 @@
                         </ToggleButton>
                     </Grid>
 
-                    <RadioButton Style="{DynamicResource MenuButton}" Margin="0,50,0,0">
+                    <RadioButton Style="{DynamicResource MenuButton}" Margin="0,50,0,0"
+                                 Command="{Binding NavigateToProductViewCommand}">
                         <Grid Height="40">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="30"/>
@@ -131,7 +141,8 @@
                         </Grid>
                     </RadioButton>
                     
-                    <RadioButton Style="{DynamicResource MenuButton}">
+                    <RadioButton Style="{DynamicResource MenuButton}"
+                                 Command="{Binding NavigateToCategoryViewCommand}">
                         <Grid Height="40">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="30"/>
@@ -143,10 +154,15 @@
                             <TextBlock Text="Categories" Style="{DynamicResource MenuButtonTextBlock}" Grid.Column="1"/>
                         </Grid>
                     </RadioButton>
+                    
+                    <!-- other menu buttons -->
                 </StackPanel>
             </Border>
 
-            <Frame x:Name="Frame" Margin="50 30 0 0"/>
+            <Frame x:Name="Frame" Panel.ZIndex="-1"
+                   Content="{Binding Navigation.Frame.Content}"
+                   NavigationUIVisibility="Hidden"
+                   Opacity="{Binding Navigation.Frame.Opacity}"/>
         </Grid>
     </Border>
 </Window>
