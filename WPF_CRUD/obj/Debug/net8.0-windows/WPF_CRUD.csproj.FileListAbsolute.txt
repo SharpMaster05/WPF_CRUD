@@ -115,3 +115,4 @@ D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\Views\Pages\Ca
 D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\Views\Pages\ProductView.g.cs
 D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\Views\Pages\CategoryView.baml
 D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\Views\Pages\ProductView.baml
+D:\CSharp\WPF\WPF_CRUD\WPF_CRUD\WPF_CRUD\obj\Debug\net8.0-windows\Styles\Dark\TextBoxes.baml

@@ -12,8 +12,6 @@ internal class ProductViewModel : BaseViewModel<ProductDto>
     public ProductViewModel(ProductService productService) : base(productService)
     {
         _productService = productService;
+        Item = new();
     }
-
-    
-
 }

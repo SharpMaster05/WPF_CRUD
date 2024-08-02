@@ -12,6 +12,7 @@ namespace WPF_CRUD.ViewModels.Pages
         public CategoryViewModel(CategoryService categoryService) : base(categoryService) 
         {
             _categoryService = categoryService;
+            Item = new();
         }
     }
 }

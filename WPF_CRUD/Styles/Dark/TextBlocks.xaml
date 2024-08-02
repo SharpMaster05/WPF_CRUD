@@ -18,5 +18,10 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="0,15,0,0"/>
     </Style>
-    
+
+    <Style x:Key="ItemsCountTextBlock" TargetType="TextBlock" BasedOn="{StaticResource MainTextBlock}">
+        <Setter Property="FontSize" Value="15"/>
+    </Style>
+
+
 </ResourceDictionary>
