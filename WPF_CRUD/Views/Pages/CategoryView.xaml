@@ -12,8 +12,7 @@
       DataContext="{Binding Source={StaticResource DiContainer}, Path=CategoryViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CategoryView"
-      Margin="50,0,0,0">
+      Title="CategoryView">
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -127,7 +126,9 @@
                                   Style="{DynamicResource ChangeViewToggleButton}"/>
                 </Grid>
 
-                <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+                <ScrollViewer Grid.Row="2" 
+                              VerticalScrollBarVisibility="Auto"
+                              MaxWidth="800">
                     <Grid>
                         <ItemsControl x:Name="ItemsControlCardView"
                                       ItemsSource="{Binding Items}"
@@ -170,8 +171,8 @@
                                                     Style="{DynamicResource CircleButton}"
                                                     Content="{md:PackIcon Kind=ArrowRightBold}"/>
                                             <StackPanel Orientation="Vertical" Margin="5">
-                                                <TextBlock Text="{Binding CategoryName}"/>
-                                                <TextBlock Text="{Binding Description}"/>
+                                                <TextBlock Text="{Binding CategoryName}" Style="{DynamicResource ModelName}"/>
+                                                <TextBlock Text="{Binding Description}" Style="{DynamicResource Description}"/>
                                             </StackPanel>
                                         </StackPanel>
                                     </RadioButton>

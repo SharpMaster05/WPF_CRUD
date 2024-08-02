@@ -59,13 +59,14 @@ internal class BaseViewModel<T> : Notifier where T : class, new()
         await _service.Delete(SelectedItem);
         await InitializeAsync(_service);
         SelectedItem = null;
+        Item = new();
     }, x => SelectedItem != null);
 
     public ICommand UpdateCommand => new Command(async x =>
     {
         await _service.Update(SelectedItem);
         SelectedItem = null;
-        Item = null;
+        Item = new();
     }, x=> SelectedItem != null);
 
     public ICommand ChangeVisibilityCommand => new Command(x => ChangeVisibility());

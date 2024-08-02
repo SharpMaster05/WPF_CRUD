@@ -20,13 +20,6 @@
         Height="450" 
         Width="800"
         MouseLeftButtonDown="Window_MouseLeftButtonDown">
-
-    <i:Interaction.Triggers>
-        <i:EventTrigger EventName="Loaded">
-            <cmd:EventToCommand Command="{Binding InitializeCommand}"/>
-        </i:EventTrigger>
-    </i:Interaction.Triggers>
-    
     
     <Border CornerRadius="10" Background="{DynamicResource PrimaryBackground}">
         <i:Interaction.Triggers>

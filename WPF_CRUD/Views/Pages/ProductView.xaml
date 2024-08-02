@@ -6,6 +6,7 @@
       xmlns:vm="clr-namespace:WPF_CRUD.ViewModels.Pages"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       xmlns:cmd="http://www.galasoft.ch/mvvmlight"
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DataContext="{d:DesignInstance Type=vm:ProductViewModel}"
       DataContext="{Binding Source={StaticResource DiContainer}, Path=ProductViewModel}"
       mc:Ignorable="d" 
@@ -17,8 +18,211 @@
             <cmd:EventToCommand Command="{Binding InitializeCommand}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    
-    <Grid>
-        <DataGrid ItemsSource="{Binding Items}"/>
-    </Grid>
+
+    <Border>
+        <Grid>
+            <ToggleButton Grid.Column="1"
+                          Style="{DynamicResource RightMenuToggleButton}"
+                          Content="{md:PackIcon Kind=MenuClose}">
+                <ToggleButton.Triggers>
+                    <EventTrigger RoutedEvent="ToggleButton.Checked">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="RightMenu"
+                                                 Storyboard.TargetProperty="Width"
+                                                 From="0" To="250"
+                                                 Duration="0:0:0.5">
+                                    <DoubleAnimation.EasingFunction>
+                                        <PowerEase Power="2" EasingMode="EaseOut"/>
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                    Storyboard.TargetName="MainSection"
+                                                    From="0"
+                                                    To="0,0,250,0"
+                                                    Duration="0:0:0.5">
+                                    <ThicknessAnimation.EasingFunction>
+                                        <PowerEase Power="2" EasingMode="EaseOut"/>
+                                    </ThicknessAnimation.EasingFunction>
+                                </ThicknessAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+
+                    <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="RightMenu"
+                                                 Storyboard.TargetProperty="Width"
+                                                 From="250" To="0"
+                                                 Duration="0:0:0.5">
+                                    <DoubleAnimation.EasingFunction>
+                                        <PowerEase Power="2" EasingMode="EaseOut"/>
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                    Storyboard.TargetName="MainSection"
+                                                    From="0,0,250,0"
+                                                    To="0"
+                                                    Duration="0:0:0.5">
+                                    <ThicknessAnimation.EasingFunction>
+                                        <PowerEase Power="2" EasingMode="EaseOut"/>
+                                    </ThicknessAnimation.EasingFunction>
+                                </ThicknessAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </ToggleButton.Triggers>
+            </ToggleButton>
+
+            <Grid x:Name="MainSection">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Products" Style="{DynamicResource MenuText}"/>
+
+                <Grid Grid.Row="1" MaxWidth="800">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="40"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Style="{DynamicResource TextBlockBorder}" Margin="0"
+                            Grid.ColumnSpan="3" MaxWidth="150">
+                        <TextBlock Text="{Binding ItemsCount, StringFormat=Count: {0}}"
+                                   Style="{DynamicResource ItemsCountTextBlock}"/>
+                    </Border>
+
+                    <Button Style="{DynamicResource AddButton}"
+                            Grid.Column="3"
+                            Command="{Binding AddCommand}"/>
+
+                    <Button Style="{DynamicResource EditButton}"
+                            Grid.Column="4"
+                            Command="{Binding UpdateCommand}"/>
+
+                    <Button Style="{DynamicResource DeleteButton}" 
+                            Grid.Column="5"
+                            Command="{Binding DeleteCommand}"/>
+
+                    <Button Style="{DynamicResource ReloadButton}" 
+                            Grid.Column="6"
+                            Command="{Binding InitializeCommand}"/>
+
+                    <ToggleButton Command="{Binding ChangeVisibilityCommand}"
+                                  Grid.Column="7"
+                                  Style="{DynamicResource ChangeViewToggleButton}"/>
+                </Grid>
+
+                <ScrollViewer Grid.Row="2" 
+                              VerticalScrollBarVisibility="Auto"
+                              MaxWidth="800">
+                    <Grid>
+                        <ItemsControl x:Name="ItemsControlCardView"
+                                      ItemsSource="{Binding Items}"
+                                      Visibility="{Binding CardView}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <RadioButton Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                                 CommandParameter="{Binding}"
+                                                 Style="{DynamicResource ItemsControlRadioButtonCardView}">
+                                        <Grid Height="120">
+                                            <TextBlock Text="{Binding ProductName}" 
+                                                       HorizontalAlignment="Center"
+                                                       Style="{DynamicResource MainTextBlock}"/>
+
+                                            <Button Style="{DynamicResource CircleButton}"
+                                                    Background="{DynamicResource PrimaryForeground}"
+                                                    Foreground="{DynamicResource PrimaryBackground}"
+                                                    VerticalAlignment="Bottom"
+                                                    Content="{md:PackIcon Kind=ArrowRight}"
+                                                    Margin="10"/>
+                                        </Grid>
+                                    </RadioButton>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <ItemsControl x:Name="ItemsControlListView"
+                                      ItemsSource="{Binding Items}"
+                                      Visibility="{Binding ListView}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <RadioButton Style="{DynamicResource ItemsControlRadioButtonListView}">
+                                        <StackPanel Orientation="Horizontal" Margin="5">
+                                            <Button Width="30" Height="30" 
+                                                    Style="{DynamicResource CircleButton}"
+                                                    Content="{md:PackIcon Kind=ArrowRightBold}"/>
+                                            <StackPanel Orientation="Vertical" Margin="5">
+                                                <TextBlock Text="{Binding ProductName}" Style="{DynamicResource ModelName}"/>
+                                                <TextBlock Text="{Binding Price}" Style="{DynamicResource Price}"/>
+                                                <TextBlock Text="{Binding Description}" Style="{DynamicResource Description}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </RadioButton>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </ScrollViewer>
+
+            </Grid>
+
+            <Border x:Name="RightMenu" Style="{DynamicResource RightMenuBorder}">
+                <StackPanel Margin="10" >
+                    <Border Style="{DynamicResource ImageBorder}">
+                        <Border.Background>
+                            <ImageBrush ImageSource="{Binding Item.ImagePath}"/>
+                        </Border.Background>
+                    </Border>
+
+                    <Button Content="{md:PackIcon Kind=Image}" Style="{DynamicResource CircleButton}"/>
+
+                    <Border Style="{DynamicResource TextBoxBorder}">
+                        <TextBox Tag="Product name" Text="{Binding Item.ProductName}"/>
+                    </Border>
+
+                    <Border Style="{DynamicResource TextBoxBorder}">
+                        <TextBox Tag="Price" Text="{Binding Item.Price}"/>
+                    </Border>
+                    
+                    <Border Style="{DynamicResource TextBoxBorder}">
+                        <TextBox Tag="Description" Text="{Binding Item.Description}"/>
+                    </Border>
+
+                    <Border Style="{DynamicResource TextBoxBorder}">
+                        <ComboBox ItemsSource="{Binding Categories}"
+                                  SelectedItem="{Binding SelectedCategory}"
+                                  Style="{DynamicResource ComboBoxStyle}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="DropDownOpened">
+                                    <cmd:EventToCommand Command="{Binding InitializeCategoriesCommand}"/>
+                                </i:EventTrigger>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <cmd:EventToCommand Command="{Binding CategoryId}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ComboBox>
+                    </Border>
+
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Border>
 </Page>

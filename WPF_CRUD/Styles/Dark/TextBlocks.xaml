@@ -23,5 +23,18 @@
         <Setter Property="FontSize" Value="15"/>
     </Style>
 
+    <Style x:Key="ModelName" TargetType="TextBlock" BasedOn="{StaticResource MainTextBlock}">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+    
+    <Style x:Key="Price" TargetType="TextBlock" BasedOn="{StaticResource MainTextBlock}">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="{DynamicResource Yellow}"/>
+    </Style>
+    
+    <Style x:Key="Description" TargetType="TextBlock" BasedOn="{StaticResource MainTextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource Blue}"/>
+    </Style>
+
 
 </ResourceDictionary>

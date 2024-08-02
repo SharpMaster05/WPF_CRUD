@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="Styles/AppFonts.xaml"/>
                 <ResourceDictionary Source="Styles/Dark/Buttons.xaml"/>
                 <ResourceDictionary Source="Styles/Dark/Borders.xaml"/>
+                <ResourceDictionary Source="Styles/Dark/ComboBox.xaml"/>
                 <ResourceDictionary Source="Styles/Dark/TextBlocks.xaml"/>
                 <ResourceDictionary Source="Styles/Dark/TextBoxes.xaml"/>
                 <ResourceDictionary Source="Styles/Dark/ScrollViewer.xaml"/>
