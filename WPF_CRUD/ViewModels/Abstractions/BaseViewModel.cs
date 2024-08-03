@@ -3,7 +3,9 @@ using BLL.Dto;
 using BLL.Services;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 using WPF_CRUD.Infrastucture;
 
 namespace WPF_CRUD.ViewModels.Abstractions;
@@ -72,7 +74,24 @@ internal class BaseViewModel<T> : Notifier where T : class, new()
         Item = new();
     }, x=> SelectedItem != null);
 
-    public ICommand ChangeVisibilityCommand => new Command(x => ChangeVisibility());
+    public ICommand ChangeVisibilityCommand => new Command(x =>
+    {
+        var scroller = x as ScrollViewer;
+        var time = TimeSpan.FromSeconds(0.3);
+
+        DoubleAnimation hide = new(1, 0, time);
+
+        hide.Completed += (s, e) =>
+        {
+            ChangeVisibility();
+            
+            DoubleAnimation fade = new(0, 1, time);
+
+            scroller.BeginAnimation(UIElement.OpacityProperty, fade);
+        };
+
+        scroller.BeginAnimation(UIElement.OpacityProperty, hide);
+    });
 
     public ICommand SelectItemCommand => new Command(x =>
     {

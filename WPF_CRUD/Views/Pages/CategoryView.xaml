@@ -122,13 +122,15 @@
                             Command="{Binding InitializeCommand}"/>
 
                     <ToggleButton Command="{Binding ChangeVisibilityCommand}"
+                                  CommandParameter="{Binding ElementName=Scroller}"
                                   Grid.Column="7"
                                   Style="{DynamicResource ChangeViewToggleButton}"/>
                 </Grid>
 
                 <ScrollViewer Grid.Row="2" 
                               VerticalScrollBarVisibility="Auto"
-                              MaxWidth="800">
+                              MaxWidth="800"
+                              Name="Scroller">
                     <Grid>
                         <ItemsControl x:Name="ItemsControlCardView"
                                       ItemsSource="{Binding Items}"

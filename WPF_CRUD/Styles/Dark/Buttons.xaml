@@ -309,7 +309,7 @@
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
-                                                 Duration="0:0:0.5"
+                                                 Duration="0:0:0.6"
                                                  From="0" To="360">
                                         <DoubleAnimation.EasingFunction>
                                             <CircleEase EasingMode="EaseOut"/>
@@ -323,7 +323,7 @@
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
-                                                 Duration="0:0:0.5"
+                                                 Duration="0:0:0.6"
                                                  From="360" To="0">
                                         <DoubleAnimation.EasingFunction>
                                             <CircleEase EasingMode="EaseOut"/>
