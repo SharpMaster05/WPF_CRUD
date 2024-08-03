@@ -149,7 +149,7 @@
                                         <StackPanel>
                                             <Border Style="{DynamicResource ItemImageBorder}">
                                                 <Border.Background>
-                                                    <ImageBrush ImageSource="{Binding ImagePath}" Stretch="Fill"/>
+                                                    <ImageBrush ImageSource="{Binding ImagePath}" Stretch="UniformToFill"/>
                                                 </Border.Background>
                                             </Border>
                                             
@@ -173,7 +173,7 @@
                                         <StackPanel Orientation="Horizontal" Margin="5">
                                             <Border Width="80" Height="80" CornerRadius="40">
                                                 <Border.Background>
-                                                    <ImageBrush ImageSource="{Binding ImagePath}" Stretch="Fill"/>
+                                                    <ImageBrush ImageSource="{Binding ImagePath}" Stretch="UniformToFill"/>
                                                 </Border.Background>
                                             </Border>
                                             
@@ -196,7 +196,7 @@
                 <StackPanel Margin="10" >
                     <Border Style="{DynamicResource ImageBorder}">
                         <Border.Background>
-                            <ImageBrush ImageSource="{Binding Image.Source}"/>
+                            <ImageBrush ImageSource="{Binding Image.Source}" Stretch="UniformToFill"/>
                         </Border.Background>
                     </Border>
 
@@ -217,7 +217,7 @@
                     </Border>
                     
                     <Border Style="{DynamicResource TextBoxBorder}">
-                        <TextBox Tag="Image Path" Text="{Binding Item.ImagePath}"/>
+                        <TextBox Tag="Image Path" Text="{Binding Image.Source}"/>
                     </Border>
 
                     <Border Style="{DynamicResource TextBoxBorder}">

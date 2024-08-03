@@ -30,6 +30,7 @@ internal class DiContainer
         builder.AddTransient<MainViewModel>();
         builder.AddTransient<ProductViewModel>();
         builder.AddTransient<CategoryViewModel>();
+        builder.AddTransient<ProductsFromCategotyViewModel>();
 
         builder.AddSingleton<Animation>();
         builder.AddSingleton<Navigation>();
@@ -40,4 +41,5 @@ internal class DiContainer
     public static MainViewModel MainViewModel => _provider.GetRequiredService<MainViewModel>();
     public static ProductViewModel ProductViewModel => _provider.GetRequiredService<ProductViewModel>();
     public static CategoryViewModel CategoryViewModel => _provider.GetRequiredService<CategoryViewModel>();
+    public static ProductsFromCategotyViewModel ProductsFromCategotyViewModel => _provider.GetRequiredService<ProductsFromCategotyViewModel>();
 }

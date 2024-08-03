@@ -45,9 +45,14 @@ internal class ProductViewModel : BaseViewModel<ProductDto>
         {
             SelectedItem = x as ProductDto;
             Item = SelectedItem;
-            SelectedCategory = (await _categoryService.GetAll())
-                .FirstOrDefault(x => x.Id == SelectedItem.CategoryId)
-                .CategoryName;
+            
+            if(SelectedItem.CategoryId != null)
+            {
+                SelectedCategory = (await _categoryService.GetAll())
+               .FirstOrDefault(x => x.Id == SelectedItem.CategoryId)
+               .CategoryName;
+            }
+           
 
             if(!string.IsNullOrEmpty(SelectedItem.ImagePath))
             {

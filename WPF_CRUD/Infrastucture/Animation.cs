@@ -115,4 +115,23 @@ internal class Animation
 
         frame.BeginAnimation(UIElement.OpacityProperty, hide);
     }
+
+    public delegate void ChangeDisplay();
+    public static void ChangeDisplayAnimation(ScrollViewer scroller, ChangeDisplay change)
+    {
+        var time = TimeSpan.FromSeconds(0.3);
+
+        DoubleAnimation hide = new(1, 0, time);
+
+        hide.Completed += (s, e) =>
+        {
+            change();
+
+            DoubleAnimation fade = new(0, 1, time);
+
+            scroller.BeginAnimation(UIElement.OpacityProperty, fade);
+        };
+
+        scroller.BeginAnimation(UIElement.OpacityProperty, hide);
+    }
 }

@@ -27,6 +27,8 @@ internal class BaseViewModel<T> : Notifier where T : class, new()
         var items = await service.GetAll();
         Items = new(items);
         ItemsCount = Items.Count;
+        SelectedItem = null;
+        Item = new();
     }
     
     private void ChangeVisibility()
@@ -77,20 +79,7 @@ internal class BaseViewModel<T> : Notifier where T : class, new()
     public ICommand ChangeVisibilityCommand => new Command(x =>
     {
         var scroller = x as ScrollViewer;
-        var time = TimeSpan.FromSeconds(0.3);
-
-        DoubleAnimation hide = new(1, 0, time);
-
-        hide.Completed += (s, e) =>
-        {
-            ChangeVisibility();
-            
-            DoubleAnimation fade = new(0, 1, time);
-
-            scroller.BeginAnimation(UIElement.OpacityProperty, fade);
-        };
-
-        scroller.BeginAnimation(UIElement.OpacityProperty, hide);
+        Animation.ChangeDisplayAnimation(scroller, ChangeVisibility);
     });
 
     public ICommand SelectItemCommand => new Command(x =>

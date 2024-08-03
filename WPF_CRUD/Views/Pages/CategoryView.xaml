@@ -154,6 +154,8 @@
                                                     Background="{DynamicResource PrimaryForeground}"
                                                     Foreground="{DynamicResource PrimaryBackground}"
                                                     VerticalAlignment="Bottom"
+                                                    Command="{Binding DataContext.NavigateToProductsCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                                    CommandParameter="{Binding}"
                                                     Content="{md:PackIcon Kind=ArrowRight}"
                                                     Margin="10"/>
                                         </Grid>
@@ -173,7 +175,9 @@
                                         <StackPanel Orientation="Horizontal" Margin="5">
                                             <Button Width="30" Height="30" 
                                                     Style="{DynamicResource CircleButton}"
-                                                    Content="{md:PackIcon Kind=ArrowRightBold}"/>
+                                                    Content="{md:PackIcon Kind=ArrowRightBold}"
+                                                    Command="{Binding DataContext.NavigateToProductsCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                                    CommandParameter="{Binding}"/>
                                             <StackPanel Orientation="Vertical" Margin="5">
                                                 <TextBlock Text="{Binding CategoryName}" Style="{DynamicResource ModelName}"/>
                                                 <TextBlock Text="{Binding Description}" Style="{DynamicResource Description}"/>
