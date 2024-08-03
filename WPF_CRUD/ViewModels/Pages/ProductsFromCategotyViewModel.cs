@@ -38,7 +38,8 @@ internal class ProductsFromCategotyViewModel : BaseViewModel<ProductDto>
         Products = new(products);
         ItemsCount = Products.Count;
         SelectedItem = null;
-        SelectedCategory = string.Empty;
+        Item = new();
+        SelectedCategory = null;
         Image = new();
     }
 
@@ -55,10 +56,13 @@ internal class ProductsFromCategotyViewModel : BaseViewModel<ProductDto>
     public ICommand CategoryId =>
         new Command(async x =>
         {
-            var categoryId = (await _categoryService.GetAll())
-                .FirstOrDefault(x => x.CategoryName == SelectedCategory)
-                .Id;
-            Item.CategoryId = categoryId;
+            if(SelectedCategory != null)
+            {
+                var categoryId = (await _categoryService.GetAll())
+                    .FirstOrDefault(x => x.CategoryName == SelectedCategory)
+                    .Id;
+                Item.CategoryId = categoryId;
+            }
         });
 
     public new ICommand SelectItemCommand =>
