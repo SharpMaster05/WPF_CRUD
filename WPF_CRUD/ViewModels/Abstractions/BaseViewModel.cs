@@ -1,4 +1,5 @@
 ﻿using BLL.Abstractions;
+using BLL.Dto;
 using BLL.Services;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -46,6 +47,8 @@ internal class BaseViewModel<T> : Notifier where T : class, new()
     public Visibility CardView {  get; set; }
     public Visibility ListView {  get; set; }
     public int ItemsCount {  get; set; }
+    public List<string> Categories { get; set; }
+    public string SelectedCategory { get; set; }
 
     public ICommand InitializeCommand => new Command(async x => await InitializeAsync(_service));
     public ICommand AddCommand => new Command(async x => 

@@ -225,8 +225,8 @@
     <Style x:Key="ItemsControlRadioButtonCardView" TargetType="RadioButton">
         <Setter Property="Background" Value="{DynamicResource SecondaryBackground}"/>
         <Setter Property="BorderBrush" Value="{x:Null}"/>
-        <Setter Property="Width" Value="100"/>
-        <Setter Property="Height" Value="130"/>
+        <Setter Property="Width" Value="120"/>
+        <Setter Property="Height" Value="170"/>
         <Setter Property="Margin" Value="6"/>
         <Setter Property="GroupName" Value="Items"/>
         <Setter Property="Template">
@@ -235,7 +235,7 @@
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="2"
-                            CornerRadius="50, 50, 20, 20">
+                            CornerRadius="60, 60, 20, 20">
                         <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Border>
 

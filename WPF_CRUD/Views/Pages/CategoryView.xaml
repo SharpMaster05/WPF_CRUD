@@ -146,7 +146,7 @@
                                         <Grid Height="120">
                                             <TextBlock Text="{Binding CategoryName}" 
                                                        HorizontalAlignment="Center"
-                                                       Style="{DynamicResource MainTextBlock}"/>
+                                                       Style="{DynamicResource ModelName}"/>
 
                                             <Button Style="{DynamicResource CircleButton}"
                                                     Background="{DynamicResource PrimaryForeground}"
@@ -165,7 +165,9 @@
                                       Visibility="{Binding ListView}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <RadioButton Style="{DynamicResource ItemsControlRadioButtonListView}">
+                                    <RadioButton Style="{DynamicResource ItemsControlRadioButtonListView}"
+                                                 Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                                 CommandParameter="{Binding}">
                                         <StackPanel Orientation="Horizontal" Margin="5">
                                             <Button Width="30" Height="30" 
                                                     Style="{DynamicResource CircleButton}"

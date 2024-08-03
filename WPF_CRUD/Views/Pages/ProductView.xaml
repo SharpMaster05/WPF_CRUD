@@ -23,7 +23,8 @@
         <Grid>
             <ToggleButton Grid.Column="1"
                           Style="{DynamicResource RightMenuToggleButton}"
-                          Content="{md:PackIcon Kind=MenuClose}">
+                          Content="{md:PackIcon Kind=MenuClose}"
+                          Command="{Binding InitializeCategoriesCommand}">
                 <ToggleButton.Triggers>
                     <EventTrigger RoutedEvent="ToggleButton.Checked">
                         <BeginStoryboard>
@@ -142,18 +143,17 @@
                                     <RadioButton Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
                                                  CommandParameter="{Binding}"
                                                  Style="{DynamicResource ItemsControlRadioButtonCardView}">
-                                        <Grid Height="120">
+                                        <StackPanel>
+                                            <Border Style="{DynamicResource ItemImageBorder}">
+                                                <Border.Background>
+                                                    <ImageBrush ImageSource="{Binding ImagePath}" Stretch="Fill"/>
+                                                </Border.Background>
+                                            </Border>
+                                            
                                             <TextBlock Text="{Binding ProductName}" 
                                                        HorizontalAlignment="Center"
-                                                       Style="{DynamicResource MainTextBlock}"/>
-
-                                            <Button Style="{DynamicResource CircleButton}"
-                                                    Background="{DynamicResource PrimaryForeground}"
-                                                    Foreground="{DynamicResource PrimaryBackground}"
-                                                    VerticalAlignment="Bottom"
-                                                    Content="{md:PackIcon Kind=ArrowRight}"
-                                                    Margin="10"/>
-                                        </Grid>
+                                                       Style="{DynamicResource ModelName}"/>
+                                        </StackPanel>
                                     </RadioButton>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
@@ -164,11 +164,16 @@
                                       Visibility="{Binding ListView}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <RadioButton Style="{DynamicResource ItemsControlRadioButtonListView}">
+                                    <RadioButton Style="{DynamicResource ItemsControlRadioButtonListView}"
+                                                 Command="{Binding DataContext.SelectItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                                 CommandParameter="{Binding}">
                                         <StackPanel Orientation="Horizontal" Margin="5">
-                                            <Button Width="30" Height="30" 
-                                                    Style="{DynamicResource CircleButton}"
-                                                    Content="{md:PackIcon Kind=ArrowRightBold}"/>
+                                            <Border Width="80" Height="80" CornerRadius="40">
+                                                <Border.Background>
+                                                    <ImageBrush ImageSource="{Binding ImagePath}" Stretch="Fill"/>
+                                                </Border.Background>
+                                            </Border>
+                                            
                                             <StackPanel Orientation="Vertical" Margin="5">
                                                 <TextBlock Text="{Binding ProductName}" Style="{DynamicResource ModelName}"/>
                                                 <TextBlock Text="{Binding Price}" Style="{DynamicResource Price}"/>
@@ -188,11 +193,13 @@
                 <StackPanel Margin="10" >
                     <Border Style="{DynamicResource ImageBorder}">
                         <Border.Background>
-                            <ImageBrush ImageSource="{Binding Item.ImagePath}"/>
+                            <ImageBrush ImageSource="{Binding Image.Source}"/>
                         </Border.Background>
                     </Border>
 
-                    <Button Content="{md:PackIcon Kind=Image}" Style="{DynamicResource CircleButton}"/>
+                    <Button Content="{md:PackIcon Kind=Image}" 
+                            Style="{DynamicResource CircleButton}"
+                            Command="{Binding SelectImageCommand}"/>
 
                     <Border Style="{DynamicResource TextBoxBorder}">
                         <TextBox Tag="Product name" Text="{Binding Item.ProductName}"/>
@@ -205,15 +212,16 @@
                     <Border Style="{DynamicResource TextBoxBorder}">
                         <TextBox Tag="Description" Text="{Binding Item.Description}"/>
                     </Border>
+                    
+                    <Border Style="{DynamicResource TextBoxBorder}">
+                        <TextBox Tag="Image Path" Text="{Binding Item.ImagePath}"/>
+                    </Border>
 
                     <Border Style="{DynamicResource TextBoxBorder}">
                         <ComboBox ItemsSource="{Binding Categories}"
                                   SelectedItem="{Binding SelectedCategory}"
                                   Style="{DynamicResource ComboBoxStyle}">
                             <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="DropDownOpened">
-                                    <cmd:EventToCommand Command="{Binding InitializeCategoriesCommand}"/>
-                                </i:EventTrigger>
                                 <i:EventTrigger EventName="SelectionChanged">
                                     <cmd:EventToCommand Command="{Binding CategoryId}"/>
                                 </i:EventTrigger>

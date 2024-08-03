@@ -113,7 +113,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Background" Value="{DynamicResource SecondaryBackground}" TargetName="Border"/>
+                            <Setter Property="Background" Value="{DynamicResource HoverBackground}" TargetName="Border"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
